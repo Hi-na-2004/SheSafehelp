@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheSafe - Women Safety Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>SheSafe</h1>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active" data-section="dashboard">Dashboard</a>
+                <a href="#" class="nav-link" data-section="toxicity">Toxicity Check</a>
+                <a href="#" class="nav-link" data-section="emotion">Mental Health</a>
+                <a href="#" class="nav-link" data-section="safety">Location Safety</a>
+                <a href="#" class="nav-link" data-section="sos">SOS</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <h2 class="section-title">Welcome to SheSafe</h2>
+                <p class="section-subtitle">Your comprehensive women safety application</p>
+                
+                <div class="dashboard-grid">
+                    <div class="feature-card" onclick="navigateToSection('toxicity')">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h3>Toxicity Detection</h3>
+                        <p>Analyze text for online harassment, threats, and abuse</p>
+                    </div>
+                    
+                    <div class="feature-card" onclick="navigateToSection('emotion')">
+                        <i class="fas fa-heart feature-icon"></i>
+                        <h3>Mental Health</h3>
+                        <p>Monitor emotional wellbeing and detect distress</p>
+                    </div>
+                    
+                    <div class="feature-card" onclick="navigateToSection('safety')">
+                        <i class="fas fa-map-marked-alt feature-icon"></i>
+                        <h3>Location Safety</h3>
+                        <p>Get safety scores and find secure routes</p>
+                    </div>
+                    
+                    <div class="feature-card" onclick="navigateToSection('sos')">
+                        <i class="fas fa-exclamation-triangle feature-icon"></i>
+                        <h3>SOS Alert</h3>
+                        <p>Emergency panic button and location sharing</p>
+                    </div>
+                </div>
+                
+                <!-- Quick SOS Button -->
+                <div class="emergency-container">
+                    <button id="quickSOS" class="emergency-btn">
+                        <i class="fas fa-exclamation-triangle"></i> EMERGENCY SOS
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toxicity Detection Section -->
+        <section id="toxicity" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-shield-alt"></i> Toxicity Detection</h2>
+                
+                <div class="input-card">
+                    <h3>Analyze Text for Harassment</h3>
+                    <textarea id="toxicityText" placeholder="Enter text to analyze for toxicity, threats, insults, etc..." rows="6"></textarea>
+                    <button onclick="analyzeToxicity()" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Analyze
+                    </button>
+                </div>
+                
+                <div id="toxicityResults" class="results-card" style="display: none;">
+                    <h3>Analysis Results</h3>
+                    <div id="toxicityContent"></div>
+                </div>
+                
+                <div class="input-card">
+                    <h3>Analyze Conversation</h3>
+                    <p>Enter multiple messages (one per line) to analyze a conversation:</p>
+                    <textarea id="conversationText" placeholder="Enter messages, one per line..." rows="8"></textarea>
+                    <button onclick="analyzeConversation()" class="btn btn-primary">
+                        <i class="fas fa-comments"></i> Analyze Conversation
+                    </button>
+                </div>
+                
+                <div id="conversationResults" class="results-card" style="display: none;">
+                    <h3>Conversation Analysis</h3>
+                    <div id="conversationContent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emotion Detection Section -->
+        <section id="emotion" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-heart"></i> Mental Health & Emotion Detection</h2>
+                
+                <div class="input-card">
+                    <h3>Analyze Emotional State</h3>
+                    <textarea id="emotionText" placeholder="Enter text to analyze emotional state and mental health indicators..." rows="6"></textarea>
+                    <button onclick="analyzeEmotion()" class="btn btn-primary">
+                        <i class="fas fa-brain"></i> Analyze
+                    </button>
+                </div>
+                
+                <div id="emotionResults" class="results-card" style="display: none;">
+                    <h3>Emotional Analysis Results</h3>
+                    <div id="emotionContent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety Scoring Section -->
+        <section id="safety" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> Location Safety Scoring</h2>
+                
+                <div class="input-card">
+                    <h3>Get Location Safety Score</h3>
+                    <button onclick="getCurrentLocation()" class="btn btn-secondary">
+                        <i class="fas fa-location-arrow"></i> Use My Current Location
+                    </button>
+                    <div class="input-group">
+                        <input type="number" id="safetyLat" placeholder="Latitude" step="any">
+                        <input type="number" id="safetyLng" placeholder="Longitude" step="any">
+                    </div>
+                    <button onclick="getSafetyScore()" class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i> Get Safety Score
+                    </button>
+                </div>
+                
+                <div id="safetyResults" class="results-card" style="display: none;">
+                    <h3>Safety Analysis</h3>
+                    <div id="safetyContent"></div>
+                </div>
+                
+                <div class="input-card">
+                    <h3>Find Safe Route</h3>
+                    <div class="route-inputs">
+                        <div class="input-group">
+                            <label>Start Location:</label>
+                            <input type="number" id="startLat" placeholder="Latitude" step="any">
+                            <input type="number" id="startLng" placeholder="Longitude" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label>End Location:</label>
+                            <input type="number" id="endLat" placeholder="Latitude" step="any">
+                            <input type="number" id="endLng" placeholder="Longitude" step="any">
+                        </div>
+                    </div>
+                    <button onclick="findSafeRoute()" class="btn btn-primary">
+                        <i class="fas fa-route"></i> Find Safe Route
+                    </button>
+                </div>
+                
+                <div id="routeResults" class="results-card" style="display: none;">
+                    <h3>Route Analysis</h3>
+                    <div id="routeContent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOS Section -->
+        <section id="sos" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> SOS & Emergency Alerts</h2>
+                
+                <div class="sos-grid">
+                    <div class="sos-card emergency-sos">
+                        <i class="fas fa-bell"></i>
+                        <h3>Send SOS Alert</h3>
+                        <input type="text" id="userName" placeholder="Your Name" class="input-field">
+                        <textarea id="sosMessage" placeholder="Optional message..." rows="3"></textarea>
+                        <button onclick="sendSOS()" class="btn btn-danger btn-large">
+                            <i class="fas fa-exclamation-triangle"></i> SEND SOS ALERT
+                        </button>
+                    </div>
+                    
+                    <div class="sos-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Share Location</h3>
+                        <input type="text" id="shareUserName" placeholder="Your Name" class="input-field">
+                        <button onclick="shareLocation()" class="btn btn-warning btn-large">
+                            <i class="fas fa-share-alt"></i> Share My Location
+                        </button>
+                    </div>
+                    
+                    <div class="sos-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Safety Check-in</h3>
+                        <input type="text" id="checkinName" placeholder="Your Name" class="input-field">
+                        <input type="text" id="checkinStatus" placeholder="Status message" class="input-field">
+                        <button onclick="sendCheckin()" class="btn btn-success btn-large">
+                            <i class="fas fa-check"></i> Send Check-in
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-card">
+                    <h3>Emergency Contacts</h3>
+                    <div class="input-group">
+                        <input type="tel" id="contactPhone" placeholder="Phone Number (+1234567890)">
+                        <input type="text" id="contactName" placeholder="Contact Name">
+                        <button onclick="addContact()" class="btn btn-secondary">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+                    <div id="contactsList" class="contacts-list"></div>
+                </div>
+                
+                <div id="sosResults" class="results-card" style="display: none;">
+                    <h3>Alert Status</h3>
+                    <div id="sosContent"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+
