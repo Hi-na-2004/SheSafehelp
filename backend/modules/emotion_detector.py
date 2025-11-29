@@ -72,7 +72,7 @@ class EmotionDetector:
                     'score': float(sentiment['score'])
                 },
                 'mental_health_risk': mental_health_risk,
-                'needs_support': mental_health_risk['level'] in ['HIGH', 'CRITICAL'],
+                'needs_support': bool(mental_health_risk['level'] in ['HIGH', 'CRITICAL']),
                 'text_analyzed': text[:100] + '...' if len(text) > 100 else text
             }
         except Exception as e:

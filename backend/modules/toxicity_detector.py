@@ -53,7 +53,7 @@ class ToxicityDetector:
                 },
                 'max_score': float(max_score),
                 'risk_level': risk_level,
-                'is_toxic': max_score > 0.5,
+                'is_toxic': bool(max_score > 0.5),
                 'text_analyzed': text[:100] + '...' if len(text) > 100 else text
             }
         except Exception as e:
