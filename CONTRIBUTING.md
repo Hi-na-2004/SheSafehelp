@@ -1,6 +1,6 @@
-# SheSafe - Contributing Guidelines
+# SafeCircle - Contributing Guidelines
 
-Thank you for considering contributing to SheSafe! This document provides guidelines and steps for contributing.
+Thank you for considering contributing to SafeCircle! This document provides guidelines and steps for contributing.
 
 ## 🌟 How to Contribute
 
@@ -80,8 +80,8 @@ We welcome feature suggestions! Please:
 
 1. **Clone your fork**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/SheSafehelp.git
-   cd SheSafehelp
+   git clone https://github.com/YOUR_USERNAME/SafeCirclehelp.git
+   cd SafeCirclehelp
    ```
 
 2. **Set up environment**
@@ -185,7 +185,7 @@ Contributors will be recognized in:
 - Release notes
 - Project documentation
 
-Thank you for making SheSafe better! 🛡️❤️
+Thank you for making SafeCircle better! 🛡️❤️
 
 ---
 

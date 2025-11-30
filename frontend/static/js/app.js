@@ -1,7 +1,45 @@
-// SheSafe - Frontend JavaScript
+// SafeCircle - Frontend JavaScript
 
 const API_BASE = 'http://localhost:5000/api';
 let currentLocation = null;
+
+// Search by place name
+async function searchByPlace() {
+    const placeName = document.getElementById('placeName').value.trim();
+    
+    if (!placeName) {
+        alert('Please enter a city or place name');
+        return;
+    }
+    
+    showLoading();
+    
+    try {
+        const response = await fetch(`${API_BASE}/safety/score`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ place_name: placeName })
+        });
+        
+        const data = await response.json();
+        
+        if (data.error) {
+            alert(data.error);
+        } else {
+            // Fill in the coordinates for reference
+            if (data.latitude && data.longitude) {
+                document.getElementById('safetyLat').value = data.latitude;
+                document.getElementById('safetyLng').value = data.longitude;
+            }
+            displaySafetyResults(data);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error searching location. Please try again.');
+    } finally {
+        hideLoading();
+    }
+}
 
 // Navigation
 document.addEventListener('DOMContentLoaded', function() {
@@ -334,6 +372,8 @@ function displaySafetyResults(data) {
     let html = `
         <div class="risk-badge ${safetyClass}">${data.safety_level}</div>
         <p><strong>Location:</strong> ${data.location_name}</p>
+        ${data.geocoded_address ? `<p><strong>Address:</strong> ${data.geocoded_address}</p>` : ''}
+        ${data.latitude && data.longitude ? `<p><strong>Coordinates:</strong> ${data.latitude.toFixed(6)}, ${data.longitude.toFixed(6)}</p>` : ''}
         <p><strong>Safety Score:</strong> ${data.safety_score}/100</p>
         <p><strong>Crime Risk:</strong> ${(data.crime_risk * 100).toFixed(1)}%</p>
         <p><strong>Time Risk Factor:</strong> ${data.time_risk_factor.toFixed(2)}x</p>

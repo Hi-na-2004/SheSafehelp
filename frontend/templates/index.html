@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SheSafe - Women Safety Application</title>
+    <title>SafeCircle - Women Safety & Support Platform</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="logo">
                 <i class="fas fa-shield-alt"></i>
-                <h1>SheSafe</h1>
+                <h1>SafeCircle</h1>
             </div>
             <nav class="nav">
                 <a href="#" class="nav-link active" data-section="dashboard">Dashboard</a>
@@ -30,8 +30,8 @@
         <!-- Dashboard Section -->
         <section id="dashboard" class="section active">
             <div class="container">
-                <h2 class="section-title">Welcome to SheSafe</h2>
-                <p class="section-subtitle">Your comprehensive women safety application</p>
+                <h2 class="section-title">Welcome to SafeCircle</h2>
+                <p class="section-subtitle">Your comprehensive women safety & support platform</p>
                 
                 <div class="dashboard-grid">
                     <div class="feature-card" onclick="navigateToSection('toxicity')">
@@ -129,14 +129,35 @@
                 
                 <div class="input-card">
                     <h3>Get Location Safety Score</h3>
-                    <button onclick="getCurrentLocation()" class="btn btn-secondary">
+                    
+                    <!-- Search by Place Name -->
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <input type="text" id="placeName" placeholder="Enter city or place name (e.g., 'New Delhi', 'Mumbai Central')" 
+                               style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <button onclick="searchByPlace()" class="btn btn-primary" style="margin-top: 10px; width: 100%;">
+                            <i class="fas fa-search"></i> Search by Place Name
+                        </button>
+                    </div>
+                    
+                    <div style="text-align: center; margin: 15px 0; color: #666;">
+                        <span>— OR —</span>
+                    </div>
+                    
+                    <!-- Use Current Location -->
+                    <button onclick="getCurrentLocation()" class="btn btn-secondary" style="width: 100%; margin-bottom: 15px;">
                         <i class="fas fa-location-arrow"></i> Use My Current Location
                     </button>
+                    
+                    <div style="text-align: center; margin: 15px 0; color: #666;">
+                        <span>— OR —</span>
+                    </div>
+                    
+                    <!-- Enter Coordinates Manually -->
                     <div class="input-group">
                         <input type="number" id="safetyLat" placeholder="Latitude" step="any">
                         <input type="number" id="safetyLng" placeholder="Longitude" step="any">
                     </div>
-                    <button onclick="getSafetyScore()" class="btn btn-primary">
+                    <button onclick="getSafetyScore()" class="btn btn-primary" style="margin-top: 10px; width: 100%;">
                         <i class="fas fa-chart-line"></i> Get Safety Score
                     </button>
                 </div>

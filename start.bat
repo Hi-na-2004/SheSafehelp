@@ -1,9 +1,9 @@
 @echo off
-REM SheSafe - Quick Start Script for Windows
+REM SafeCircle - Quick Start Script for Windows
 
 echo.
 echo ====================================
-echo SheSafe - Women Safety Application
+echo SafeCircle - Women Safety & Support Platform
 echo ====================================
 echo.
 

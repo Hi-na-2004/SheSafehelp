@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# SheSafe - Quick Start Script for Unix-like systems
+# SafeCircle - Quick Start Script for Unix-like systems
 
-echo "🛡️  SheSafe - Women Safety Application"
+echo "🛡️  SafeCircle - Women Safety & Support Platform"
 echo "======================================"
 
 # Check if Python is installed

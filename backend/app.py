@@ -1,5 +1,5 @@
 """
-SheSafe - Women Safety Application
+SafeCircle - Women Safety & Support Platform
 Main Flask Application with 4 Core Modules
 """
 from flask import Flask, render_template, request, jsonify

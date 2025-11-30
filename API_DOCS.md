@@ -1,4 +1,4 @@
-# SheSafe - API Documentation
+# SafeCircle - API Documentation
 
 ## Base URL
 ```

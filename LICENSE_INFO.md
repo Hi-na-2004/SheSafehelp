@@ -1,9 +1,9 @@
-# SheSafe - License Information
+# SafeCircle - License Information
 
 This project integrates multiple open-source libraries and is safe for commercial use.
 
 ## Project License
-This project (SheSafe) is distributed under the MIT License.
+This project (SafeCircle) is distributed under the MIT License.
 
 ## Third-Party Licenses
 
@@ -76,7 +76,7 @@ All components use permissive licenses (MIT, Apache 2.0, BSD) that allow:
 ## Attribution
 
 When using this project, please provide attribution to:
-- SheSafe project
+- SafeCircle project
 - Unitary AI (Detoxify)
 - Hugging Face (Transformers)
 - Other dependencies as per their licenses

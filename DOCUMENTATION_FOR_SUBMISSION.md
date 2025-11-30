@@ -1,4 +1,4 @@
-# SheSafe - Model Metrics & Performance Documentation
+# SafeCircle - Model Metrics & Performance Documentation
 
 ## Model Metrics (Max 100 words)
 
@@ -44,7 +44,7 @@ Models trained on Jigsaw (2M+ comments), GoEmotions (58K+ Reddit comments), and 
 ## Interoperability and Integration Details
 
 ### 1. **API Architecture**
-SheSafe provides RESTful APIs enabling seamless integration with:
+SafeCircle provides RESTful APIs enabling seamless integration with:
 - **Web Applications:** CORS-enabled endpoints
 - **Mobile Apps:** JSON-based request/response
 - **Third-party Services:** Webhook support for real-time alerts
@@ -101,8 +101,8 @@ client = Client(api_key='your_key')
 result = client.toxicity.analyze("text")
 
 # JavaScript SDK
-import SheSafe from 'shesafe-js';
-const client = new SheSafe('your_key');
+import SafeCircle from 'shesafe-js';
+const client = new SafeCircle('your_key');
 const result = await client.toxicity.analyze("text");
 ```
 
@@ -172,9 +172,9 @@ POST /webhooks/alert
 ### Example 1: Mobile App Integration
 ```javascript
 // React Native
-import { SheSafeClient } from '@shesafe/mobile-sdk';
+import { SafeCircleClient } from '@shesafe/mobile-sdk';
 
-const client = new SheSafeClient({
+const client = new SafeCircleClient({
   apiKey: process.env.SHESAFE_API_KEY,
   baseURL: 'https://api.shesafe.com'
 });
@@ -239,7 +239,7 @@ void sendSOSAlert() {
   String json;
   serializeJson(doc, json);
   
-  // Send to SheSafe API
+  // Send to SafeCircle API
   http.begin("http://api.shesafe.com/api/sos/alert");
   http.addHeader("Content-Type", "application/json");
   int httpCode = http.POST(json);
@@ -254,7 +254,7 @@ void sendSOSAlert() {
 ```java
 // Java Spring Boot
 @Service
-public class SheSafeService {
+public class SafeCircleService {
     
     @Value("${shesafe.api.key}")
     private String apiKey;

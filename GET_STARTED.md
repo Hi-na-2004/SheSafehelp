@@ -1,4 +1,4 @@
-# 🎉 SheSafe - Complete Project Created!
+# 🎉 SafeCircle - Complete Project Created!
 
 ## ✅ CONGRATULATIONS!
 
@@ -39,20 +39,20 @@ Your comprehensive **Women Safety Application** is now **100% COMPLETE** and rea
 
 **macOS/Linux:**
 ```bash
-cd /Users/sangam.gautam/SheSafehelp
+cd /Users/sangam.gautam/SafeCirclehelp
 chmod +x start.sh
 ./start.sh
 ```
 
 **Windows:**
 ```bash
-cd /Users/sangam.gautam/SheSafehelp
+cd /Users/sangam.gautam/SafeCirclehelp
 start.bat
 ```
 
 ### Method 2: Python Setup Script
 ```bash
-cd /Users/sangam.gautam/SheSafehelp
+cd /Users/sangam.gautam/SafeCirclehelp
 python3 setup.py
 cd backend
 python3 app.py
@@ -60,7 +60,7 @@ python3 app.py
 
 ### Method 3: Manual Setup
 ```bash
-cd /Users/sangam.gautam/SheSafehelp
+cd /Users/sangam.gautam/SafeCirclehelp
 
 # Create virtual environment
 python3 -m venv venv
@@ -136,7 +136,7 @@ curl -X POST http://localhost:5000/api/emotion/analyze \
 
 ### 4. Run Module Tests
 ```bash
-cd /Users/sangam.gautam/SheSafehelp
+cd /Users/sangam.gautam/SafeCirclehelp
 python3 test_modules.py
 ```
 
@@ -157,7 +157,7 @@ python3 test_modules.py
 
 3. **Edit .env file**:
 ```bash
-cd /Users/sangam.gautam/SheSafehelp
+cd /Users/sangam.gautam/SafeCirclehelp
 nano .env  # or use any text editor
 ```
 
@@ -354,7 +354,7 @@ chmod +x start.sh
 
 ## 🤝 CONTRIBUTING
 
-Want to improve SheSafe?
+Want to improve SafeCircle?
 
 1. Fork the repository
 2. Create a feature branch
@@ -445,7 +445,7 @@ You now have a comprehensive women's safety application that:
 **Start the app and explore all the features!**
 
 ```bash
-cd /Users/sangam.gautam/SheSafehelp
+cd /Users/sangam.gautam/SafeCirclehelp
 ./start.sh  # or start.bat on Windows
 ```
 

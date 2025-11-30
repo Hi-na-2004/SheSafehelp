@@ -1,6 +1,6 @@
-# 🚀 SheSafe - Quick Start Guide
+# 🚀 SafeCircle - Quick Start Guide
 
-Get up and running with SheSafe in 5 minutes!
+Get up and running with SafeCircle in 5 minutes!
 
 ## ⚡ Super Quick Start
 

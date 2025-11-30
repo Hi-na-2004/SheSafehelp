@@ -1,4 +1,4 @@
-# 🛡️ SheSafe - Women Safety Application
+# 🛡️ SafeCircle - Women Safety Application
 
 A comprehensive women safety application with 4 core modules powered by AI/ML for protecting women and ensuring their safety online and offline.
 
@@ -44,7 +44,7 @@ A comprehensive women safety application with 4 core modules powered by AI/ML fo
 ## 🏗️ Architecture
 
 ```
-SheSafehelp/
+SafeCirclehelp/
 ├── backend/
 │   ├── app.py                    # Main Flask application
 │   ├── modules/                  # Core AI/ML modules
@@ -83,7 +83,7 @@ SheSafehelp/
 1. **Clone the repository**
 ```bash
 git clone <your-repo-url>
-cd SheSafehelp
+cd SafeCirclehelp
 ```
 
 2. **Create a virtual environment**

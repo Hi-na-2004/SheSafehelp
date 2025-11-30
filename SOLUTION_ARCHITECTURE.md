@@ -1,4 +1,4 @@
-# SheSafe - Solution Architecture Document
+# SafeCircle - Solution Architecture Document
 ## System Architecture & Data Flow Diagrams
 
 ---

@@ -1,6 +1,6 @@
-# SheSafe - Deployment Guide
+# SafeCircle - Deployment Guide
 
-This guide covers deploying SheSafe to various platforms.
+This guide covers deploying SafeCircle to various platforms.
 
 ## 🚀 Deployment Options
 
@@ -85,7 +85,7 @@ sudo apt install python3-pip python3-venv nginx -y
 4. **Clone repository**
 ```bash
 git clone your-repo-url
-cd SheSafehelp
+cd SafeCirclehelp
 ```
 
 5. **Setup virtual environment**
@@ -104,14 +104,14 @@ sudo nano /etc/systemd/system/shesafe.service
 Add:
 ```ini
 [Unit]
-Description=SheSafe Application
+Description=SafeCircle Application
 After=network.target
 
 [Service]
 User=ubuntu
-WorkingDirectory=/home/ubuntu/SheSafehelp/backend
-Environment="PATH=/home/ubuntu/SheSafehelp/venv/bin"
-ExecStart=/home/ubuntu/SheSafehelp/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 app:app
+WorkingDirectory=/home/ubuntu/SafeCirclehelp/backend
+Environment="PATH=/home/ubuntu/SafeCirclehelp/venv/bin"
+ExecStart=/home/ubuntu/SafeCirclehelp/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 app:app
 
 [Install]
 WantedBy=multi-user.target
@@ -135,7 +135,7 @@ server {
     }
     
     location /static {
-        alias /home/ubuntu/SheSafehelp/frontend/static;
+        alias /home/ubuntu/SafeCirclehelp/frontend/static;
     }
 }
 ```
@@ -204,27 +204,27 @@ az login
 
 3. **Create resource group**
 ```bash
-az group create --name SheSafeRG --location eastus
+az group create --name SafeCircleRG --location eastus
 ```
 
 4. **Create App Service plan**
 ```bash
-az appservice plan create --name SheSafePlan --resource-group SheSafeRG --sku B1 --is-linux
+az appservice plan create --name SafeCirclePlan --resource-group SafeCircleRG --sku B1 --is-linux
 ```
 
 5. **Create web app**
 ```bash
-az webapp create --resource-group SheSafeRG --plan SheSafePlan --name shesafe-app --runtime "PYTHON:3.10"
+az webapp create --resource-group SafeCircleRG --plan SafeCirclePlan --name shesafe-app --runtime "PYTHON:3.10"
 ```
 
 6. **Configure environment variables**
 ```bash
-az webapp config appsettings set --resource-group SheSafeRG --name shesafe-app --settings FLASK_SECRET_KEY=your_key
+az webapp config appsettings set --resource-group SafeCircleRG --name shesafe-app --settings FLASK_SECRET_KEY=your_key
 ```
 
 7. **Deploy code**
 ```bash
-az webapp up --name shesafe-app --resource-group SheSafeRG
+az webapp up --name shesafe-app --resource-group SafeCircleRG
 ```
 
 ### 6. Google Cloud Platform (Cloud Run)
@@ -395,7 +395,7 @@ kill -9 PID
 
 2. **Permission denied**
 ```bash
-sudo chown -R $USER:$USER /path/to/SheSafehelp
+sudo chown -R $USER:$USER /path/to/SafeCirclehelp
 chmod +x start.sh
 ```
 

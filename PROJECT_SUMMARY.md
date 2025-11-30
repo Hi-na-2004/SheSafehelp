@@ -1,4 +1,4 @@
-# 🎉 SheSafe - Project Summary
+# 🎉 SafeCircle - Project Summary
 
 ## ✅ What Has Been Created
 
@@ -7,7 +7,7 @@ I've successfully created a **complete, production-ready women's safety applicat
 ### 📁 Project Structure
 
 ```
-SheSafehelp/
+SafeCirclehelp/
 ├── 📱 Backend (Flask API)
 │   ├── app.py                          # Main Flask application
 │   ├── modules/                        # 4 Core AI/ML Modules

@@ -1,4 +1,4 @@
-# SheSafe - Technical Reference & Citations
+# SafeCircle - Technical Reference & Citations
 ## AI Methods, Datasets, and Open Source Resources
 
 ---
